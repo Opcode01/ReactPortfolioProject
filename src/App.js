@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Projects from './Projects';
 
 // A React component is a combination of react elements
 class App extends Component {
@@ -23,7 +24,6 @@ class App extends Component {
                 <p>I also love music and hiking</p>
                 <button onClick={this.toggleDisplayBio}>Show less</button>
             </div>
-
         ) : (
             <div>
                 <button onClick={this.toggleDisplayBio}>Read More</button>
@@ -37,6 +37,9 @@ class App extends Component {
                 <p>My name is Austin. I'm a software engineer</p>
                 <p>I'm always looking forward to working on meaningful projects</p>
                 {bio}
+
+                <hr/>
+                <Projects/>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Projects from './Projects';
+import SocialProfiles from './socialProfiles';
 
 // A React component is a combination of react elements
 class App extends Component {
@@ -40,7 +41,22 @@ class App extends Component {
 
                 <hr/>
                 <Projects/>
+                
+                <footer style={
+                    {
+                        position: 'fixed',
+                        left: 0,
+                        bottom: 0,
+                        width: '100%',
+                        ['background-color']: '#ededed',
+                        color: 'black',
+                        ['text-align']: 'center'
+                    }
+                }>
+                <SocialProfiles/>
+                </footer>
             </div>
+
         );
     }
 }

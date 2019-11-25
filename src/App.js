@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 
 // A React component is a combination of react elements
 class App extends Component {
-    constructor(){
-        super();
-        this.state = { displayBio: false };
-        console.log('component this', this);
-
-        // Binding is needed to give this context to the helper method because JS is weird
-        this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
-    }
+    //Class properties
+    state = { displayBio: false };
 
     // Helper method for onClick event
-    toggleDisplayBio(){
+    toggleDisplayBio = () => {
+        // Never directly modify state in React - always use setstate
+        // SetState triggers the render() method, meaning SetState will automatically update the webpage and modifying state directly will not
         this.setState({displayBio: !this.state.displayBio});
     }
 
     //Render method from component
-    render(){
+    render() {
         // Local var holding JSX that is determined conditionally on this.state.displayBio
         let bio = this.state.displayBio ? (
             <div>

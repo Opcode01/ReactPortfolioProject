@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Projects from './Projects';
 import SocialProfiles from './SocialProfiles';
-import './index.css'
-import profile from './assets/myprofile2.jpg';
+import '../index.css'
+import profile from '../assets/myprofile2.jpg';
 import Title from './title.js';
 
 // A React component is a combination of react elements

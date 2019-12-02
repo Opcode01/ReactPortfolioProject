@@ -24063,7 +24063,7 @@ var PROJECTS = [{
 }];
 var _default = PROJECTS;
 exports.default = _default;
-},{"../assets/project1.png":"assets/project1.png","../assets/project2.png":"assets/project2.png","../assets/project3.png":"assets/project3.png"}],"Projects.js":[function(require,module,exports) {
+},{"../assets/project1.png":"assets/project1.png","../assets/project2.png":"assets/project2.png","../assets/project3.png":"assets/project3.png"}],"Components/Projects.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24073,7 +24073,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _projects = _interopRequireDefault(require("./data/projects"));
+var _projects = _interopRequireDefault(require("../data/projects"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24173,7 +24173,7 @@ function (_Component2) {
 
 var _default = Projects;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./data/projects":"data/projects.js"}],"assets/email_icon.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../data/projects":"data/projects.js"}],"assets/email_icon.png":[function(require,module,exports) {
 module.exports = "/email_icon.d6c23642.png";
 },{}],"assets/github_icon.png":[function(require,module,exports) {
 module.exports = "/github_icon.2b0f71f9.png";
@@ -24218,7 +24218,7 @@ var SOCIAL_PROFILES = [{
 }];
 var _default = SOCIAL_PROFILES;
 exports.default = _default;
-},{"../assets/email_icon.png":"assets/email_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png"}],"SocialProfiles.js":[function(require,module,exports) {
+},{"../assets/email_icon.png":"assets/email_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png"}],"Components/SocialProfiles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24228,7 +24228,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _socialProfiles = _interopRequireDefault(require("./data/socialProfiles"));
+var _socialProfiles = _interopRequireDefault(require("../data/socialProfiles"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24325,7 +24325,7 @@ function (_Component2) {
 
 var _default = SocialProfiles;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./data/socialProfiles":"data/socialProfiles.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../data/socialProfiles":"data/socialProfiles.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -24399,7 +24399,7 @@ module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"./assets\\roboto-condensed.light.ttf":[["roboto-condensed.light.6709adf4.ttf","assets/roboto-condensed.light.ttf"],"assets/roboto-condensed.light.ttf"],"./assets\\economica-bold.ttf":[["economica-bold.12a9e27d.ttf","assets/economica-bold.ttf"],"assets/economica-bold.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/myprofile2.jpg":[function(require,module,exports) {
 module.exports = "/myprofile2.9dfc23c2.jpg";
-},{}],"title.js":[function(require,module,exports) {
+},{}],"Components/title.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24493,7 +24493,6 @@ function (_Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      console.log("Title component has unmounted");
       clearInterval(this.titleInterval);
       clearTimeout(this.timeout);
     }
@@ -24515,7 +24514,7 @@ function (_Component) {
 
 var _default = Title;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"Components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24529,9 +24528,9 @@ var _Projects = _interopRequireDefault(require("./Projects"));
 
 var _SocialProfiles = _interopRequireDefault(require("./SocialProfiles"));
 
-require("./index.css");
+require("../index.css");
 
-var _myprofile = _interopRequireDefault(require("./assets/myprofile2.jpg"));
+var _myprofile = _interopRequireDefault(require("../assets/myprofile2.jpg"));
 
 var _title = _interopRequireDefault(require("./title.js"));
 
@@ -24630,20 +24629,20 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Projects":"Projects.js","./SocialProfiles":"SocialProfiles.js","./index.css":"index.css","./assets/myprofile2.jpg":"assets/myprofile2.jpg","./title.js":"title.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Projects":"Components/Projects.js","./SocialProfiles":"Components/SocialProfiles.js","../index.css":"index.css","../assets/myprofile2.jpg":"assets/myprofile2.jpg","./title.js":"Components/title.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _App = _interopRequireDefault(require("./App"));
+var _App = _interopRequireDefault(require("./Components/App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // This will inject the Element/Component in the index.html file at the div with the id tag of 'root' 
 _reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./App":"App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Components/App":"Components/App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

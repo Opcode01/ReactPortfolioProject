@@ -8,9 +8,9 @@ class Project extends Component{
         const {title, image, description, link } = this.props.project;
 
         return(
-            <div style={{display: 'inline-grid', width: 400, margin: 10}}>
+            <div style={{width: 400, padding: 50}}>
                 <h3>{title}</h3>
-                <img src={image} alt='profile' style={{ width: 200, height: 120}}/>
+                <img src={image} alt='profile' style={{width: 200, height: 120}}/>
                 <p>{description}</p>
                 <a href={link}>{link}</a>
             </div>
@@ -23,7 +23,7 @@ class Projects extends Component{
         return(
             <div>
                 <h2>Highlighted Projects</h2>
-                <div>
+                <div style={{display: 'flex', flexDirection: 'row'}}>
                     {
                         PROJECTS.map((PROJECT) => {
                             return(

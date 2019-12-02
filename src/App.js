@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Projects from './Projects';
-import SocialProfiles from './socialProfiles';
+import SocialProfiles from './SocialProfiles';
+import './index.css'
+import profile from './assets/myprofile2.jpg';
 
 // A React component is a combination of react elements
 class App extends Component {
@@ -34,6 +36,7 @@ class App extends Component {
         return(
             // Normal JSX element - looks exactly like HTML
             <div>
+                <img src={profile} alt='profile' className="profile"/>
                 <h1>Hello!</h1>
                 <p>My name is Austin. I'm a software engineer</p>
                 <p>I'm always looking forward to working on meaningful projects</p>
@@ -48,9 +51,8 @@ class App extends Component {
                         left: 0,
                         bottom: 0,
                         width: '100%',
-                        ['background-color']: '#ededed',
+                        backgroundColor: '#ededed',
                         color: 'black',
-                        ['text-align']: 'center'
                     }
                 }>
                 <SocialProfiles/>

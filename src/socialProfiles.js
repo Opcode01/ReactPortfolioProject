@@ -5,14 +5,14 @@ class Profile extends Component{
     render(){
         console.log('this.props:', this.props);
 
-        const {title, image, description, link } = this.props.profile;
+        const {image, link } = this.props.profile;
 
         return(
-            <div style={{display: 'inline-grid', width: 50, margin: 10}}>
+            <span style={{display: 'inline-grid', width: 50, margin: 10}}>
                 <a href={link}>
                     <img src={image} alt='profile' style={{ width: 30, height: 30}}/>
                 </a>
-            </div>
+            </span>
         );
     }
 }

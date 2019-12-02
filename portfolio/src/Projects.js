@@ -3,8 +3,6 @@ import PROJECTS from './data/projects';
 
 class Project extends Component{
     render(){
-        console.log('this.props:', this.props);
-
         const {title, image, description, link } = this.props.project;
 
         return(
@@ -23,7 +21,7 @@ class Projects extends Component{
         return(
             <div>
                 <h2>Highlighted Projects</h2>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div style={{display: 'flex', flexDirection: 'row', textAlign: 'center'}}>
                     {
                         PROJECTS.map((PROJECT) => {
                             return(

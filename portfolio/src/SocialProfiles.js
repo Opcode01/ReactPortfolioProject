@@ -3,8 +3,6 @@ import SOCIAL_PROFILES from './data/socialProfiles';
 
 class Profile extends Component{
     render(){
-        console.log('this.props:', this.props);
-
         const {image, link } = this.props.profile;
 
         return(

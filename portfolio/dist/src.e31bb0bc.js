@@ -24071,105 +24071,50 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _projects = _interopRequireDefault(require("../data/projects"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Project =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Project, _Component);
-
-  function Project() {
-    _classCallCheck(this, Project);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Project).apply(this, arguments));
-  }
-
-  _createClass(Project, [{
-    key: "render",
-    value: function render() {
-      var _this$props$project = this.props.project,
-          title = _this$props$project.title,
-          image = _this$props$project.image,
-          description = _this$props$project.description,
-          link = _this$props$project.link;
-      return _react.default.createElement("div", {
-        style: {
-          width: 400,
-          padding: 50
-        }
-      }, _react.default.createElement("h3", null, title), _react.default.createElement("img", {
-        src: image,
-        alt: "profile",
-        style: {
-          width: 200,
-          height: 120
-        }
-      }), _react.default.createElement("p", null, description), _react.default.createElement("a", {
-        href: link
-      }, link));
+//Stateless functional component syntax
+var Project = function Project(props) {
+  var _props$project = props.project,
+      title = _props$project.title,
+      image = _props$project.image,
+      description = _props$project.description,
+      link = _props$project.link;
+  return _react.default.createElement("div", {
+    style: {
+      width: 400,
+      margin: 10
     }
-  }]);
-
-  return Project;
-}(_react.Component);
-
-var Projects =
-/*#__PURE__*/
-function (_Component2) {
-  _inherits(Projects, _Component2);
-
-  function Projects() {
-    _classCallCheck(this, Projects);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Projects).apply(this, arguments));
-  }
-
-  _createClass(Projects, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h2", null, "Highlighted Projects"), _react.default.createElement("div", {
-        style: {
-          display: 'flex',
-          flexDirection: 'row',
-          textAlign: 'center'
-        }
-      }, _projects.default.map(function (PROJECT) {
-        return _react.default.createElement(Project, {
-          key: PROJECT.id,
-          project: PROJECT
-        });
-      })));
+  }, _react.default.createElement("h3", null, title), _react.default.createElement("img", {
+    src: image,
+    alt: "profile",
+    style: {
+      width: 200,
+      height: 120,
+      margin: 10
     }
-  }]);
+  }), _react.default.createElement("p", null, description), _react.default.createElement("a", {
+    href: link
+  }, link));
+}; //Stateless functional componenet with inline return - used when the component only has a return function
 
-  return Projects;
-}(_react.Component);
+
+var Projects = function Projects() {
+  return _react.default.createElement("div", null, _react.default.createElement("h2", null, "Highlighted Projects"), _react.default.createElement("div", {
+    style: {
+      display: "inline-flex"
+    }
+  }, _projects.default.map(function (PROJECT) {
+    return _react.default.createElement(Project, {
+      key: PROJECT.id,
+      project: PROJECT
+    });
+  })));
+};
 
 var _default = Projects;
 exports.default = _default;
@@ -24226,102 +24171,46 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _socialProfiles = _interopRequireDefault(require("../data/socialProfiles"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Profile =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Profile, _Component);
-
-  function Profile() {
-    _classCallCheck(this, Profile);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Profile).apply(this, arguments));
-  }
-
-  _createClass(Profile, [{
-    key: "render",
-    value: function render() {
-      var _this$props$profile = this.props.profile,
-          image = _this$props$profile.image,
-          link = _this$props$profile.link;
-      return _react.default.createElement("span", {
-        style: {
-          display: 'inline-grid',
-          width: 50,
-          margin: 10
-        }
-      }, _react.default.createElement("a", {
-        href: link
-      }, _react.default.createElement("img", {
-        src: image,
-        alt: "profile",
-        style: {
-          width: 30,
-          height: 30
-        }
-      })));
+var Profile = function Profile(props) {
+  var _props$profile = props.profile,
+      image = _props$profile.image,
+      link = _props$profile.link;
+  return _react.default.createElement("span", {
+    style: {
+      display: 'inline-grid',
+      width: 50,
+      margin: 10
     }
-  }]);
-
-  return Profile;
-}(_react.Component);
-
-var SocialProfiles =
-/*#__PURE__*/
-function (_Component2) {
-  _inherits(SocialProfiles, _Component2);
-
-  function SocialProfiles() {
-    _classCallCheck(this, SocialProfiles);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(SocialProfiles).apply(this, arguments));
-  }
-
-  _createClass(SocialProfiles, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h3", {
-        style: {
-          margin: 10
-        }
-      }, "Find me on:"), _react.default.createElement("div", null, _socialProfiles.default.map(function (PROFILE) {
-        return _react.default.createElement(Profile, {
-          key: PROFILE.id,
-          profile: PROFILE
-        });
-      })));
+  }, _react.default.createElement("a", {
+    href: link
+  }, _react.default.createElement("img", {
+    src: image,
+    alt: "profile",
+    style: {
+      width: 30,
+      height: 30
     }
-  }]);
+  })));
+};
 
-  return SocialProfiles;
-}(_react.Component);
+var SocialProfiles = function SocialProfiles() {
+  return _react.default.createElement("div", null, _react.default.createElement("h3", {
+    style: {
+      margin: 10
+    }
+  }, "Find me on:"), _react.default.createElement("div", null, _socialProfiles.default.map(function (PROFILE) {
+    return _react.default.createElement(Profile, {
+      key: PROFILE.id,
+      profile: PROFILE
+    });
+  })));
+};
 
 var _default = SocialProfiles;
 exports.default = _default;
@@ -24514,6 +24403,99 @@ function (_Component) {
 
 var _default = Title;
 exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"Components/Jokes.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// Display a fetched joke from the api
+var Jokes =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Jokes, _Component);
+
+  function Jokes() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Jokes);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Jokes)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      joke: {}
+    });
+
+    return _this;
+  }
+
+  _createClass(Jokes, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      // Fetch the joke asynchronously
+      fetch('https://official-joke-api.appspot.com/random_joke').then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        return _this2.setState({
+          joke: json
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state$joke = this.state.joke,
+          setup = _this$state$joke.setup,
+          punchline = _this$state$joke.punchline;
+      return _react.default.createElement("div", {
+        style: {
+          marginBottom: 200
+        }
+      }, _react.default.createElement("h2", null, "Highlighted Joke"), _react.default.createElement("p", null, setup, " ", _react.default.createElement("em", null, punchline)));
+    }
+  }]);
+
+  return Jokes;
+}(_react.Component);
+
+var _default = Jokes;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"Components/App.js":[function(require,module,exports) {
 "use strict";
 
@@ -24533,6 +24515,8 @@ require("../index.css");
 var _myprofile = _interopRequireDefault(require("../assets/myprofile2.jpg"));
 
 var _title = _interopRequireDefault(require("./title.js"));
+
+var _Jokes = _interopRequireDefault(require("./Jokes.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24609,7 +24593,7 @@ function (_Component) {
           src: _myprofile.default,
           alt: "profile",
           className: "profile"
-        }), _react.default.createElement("h1", null, "Hello!"), _react.default.createElement(_title.default, null), _react.default.createElement("p", null, "I'm always looking forward to working on meaningful projects"), bio, _react.default.createElement("hr", null), _react.default.createElement(_Projects.default, null), _react.default.createElement("footer", {
+        }), _react.default.createElement("h1", null, "Hello!"), _react.default.createElement("p", null, "My name is Austin"), _react.default.createElement(_title.default, null), _react.default.createElement("p", null, "I'm always looking forward to working on meaningful projects"), bio, _react.default.createElement("hr", null), _react.default.createElement(_Projects.default, null), _react.default.createElement("hr", null), _react.default.createElement(_Jokes.default, null), _react.default.createElement("footer", {
           style: {
             position: 'fixed',
             left: 0,
@@ -24629,7 +24613,7 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Projects":"Components/Projects.js","./SocialProfiles":"Components/SocialProfiles.js","../index.css":"index.css","../assets/myprofile2.jpg":"assets/myprofile2.jpg","./title.js":"Components/title.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Projects":"Components/Projects.js","./SocialProfiles":"Components/SocialProfiles.js","../index.css":"index.css","../assets/myprofile2.jpg":"assets/myprofile2.jpg","./title.js":"Components/title.js","./Jokes.js":"Components/Jokes.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -24669,7 +24653,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62892" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59283" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -4,6 +4,7 @@ import SocialProfiles from './SocialProfiles';
 import '../index.css'
 import profile from '../assets/myprofile2.jpg';
 import Title from './title.js';
+import Jokes from './Jokes.js';
 
 // A React component is a combination of react elements
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
             <div>
                 <img src={profile} alt='profile' className="profile"/>
                 <h1>Hello!</h1>
+                <p>My name is Austin</p>
                 <Title />
                 <p>I'm always looking forward to working on meaningful projects</p>
                 {bio}
@@ -46,7 +48,9 @@ class App extends Component {
                 { /*React Component*/ }
                 <hr/>
                 <Projects/> 
-                
+                <hr/>
+                <Jokes/>
+                                
                 <footer style={
                     {
                         position: 'fixed',

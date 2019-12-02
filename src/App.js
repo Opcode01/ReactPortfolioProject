@@ -42,8 +42,9 @@ class App extends Component {
                 <p>I'm always looking forward to working on meaningful projects</p>
                 {bio}
 
+                { /*React Component*/ }
                 <hr/>
-                <Projects/>
+                <Projects/> 
                 
                 <footer style={
                     {
@@ -55,6 +56,8 @@ class App extends Component {
                         color: 'black',
                     }
                 }>
+
+                { /*React Component*/ }
                 <SocialProfiles/>
                 </footer>
             </div>

@@ -14,14 +14,16 @@ class Jokes extends Component{
         // Fetch the joke asynchronously
         fetch('https://official-joke-api.appspot.com/random_joke')
         .then((response) => response.json())
-        .then(json => this.setState({joke: json}));
+        .then(json => this.setState({joke: json}))
+        .catch(error => alert(error.message));
     }
 
     fetchJokes = () => {
          // Fetch the joke asynchronously
-         fetch('https://official-joke-api.appspot.com/random_ten')
+         fetch('https://official-joke-api.appspot.com/random_10')
          .then((response) => response.json())
-         .then(json => this.setState({jokes: json}));
+         .then(json => this.setState({jokes: json}))
+         .catch(error => alert(error.message));
     }
 
     render(){

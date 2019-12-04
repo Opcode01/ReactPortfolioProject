@@ -24474,12 +24474,14 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "fetchJokes", function () {
       // Fetch the joke asynchronously
-      fetch('https://official-joke-api.appspot.com/random_ten').then(function (response) {
+      fetch('https://official-joke-api.appspot.com/random_10').then(function (response) {
         return response.json();
       }).then(function (json) {
         return _this.setState({
           jokes: json
         });
+      }).catch(function (error) {
+        return alert(error.message);
       });
     });
 
@@ -24498,6 +24500,8 @@ function (_Component) {
         return _this2.setState({
           joke: json
         });
+      }).catch(function (error) {
+        return alert(error.message);
       });
     }
   }, {
@@ -24655,6 +24659,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // This will inject the Element/Component in the index.html file at the div with the id tag of 'root' 
 _reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('root'));
+/* A fetch is really just a Promise - example code */
+
+/*
+new Promise((resolve, reject) => {
+    return reject(new Error('No bears'));
+    
+    setTimeout(() => {
+        resolve('Bears, beets, battlestar galactica');
+    }, 2000);
+}).then((quote) => {
+    console.log(quote);
+})
+.catch(error => { 
+    console.log(error)
+});
+
+*/
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Components/App":"Components/App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

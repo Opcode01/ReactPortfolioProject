@@ -29433,41 +29433,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"warning":"../node_modules/history/node_modules/warning/browser.js","invariant":"../node_modules/invariant/browser.js","./LocationUtils":"../node_modules/history/LocationUtils.js","./PathUtils":"../node_modules/history/PathUtils.js","./createTransitionManager":"../node_modules/history/createTransitionManager.js","./DOMUtils":"../node_modules/history/DOMUtils.js"}],"Components/Header.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = function Header() {
-  var style = {
-    display: 'inline-block',
-    flexDirection: 'row',
-    margin: 10,
-    marginBottom: 30
-  };
-  return _react.default.createElement("div", null, _react.default.createElement("h3", {
-    style: style
-  }, _react.default.createElement(_reactRouterDom.Link, {
-    to: "/"
-  }, "Home")), _react.default.createElement("h3", {
-    style: style
-  }, _react.default.createElement(_reactRouterDom.Link, {
-    to: "/jokes"
-  }, "Jokes")));
-};
-
-var _default = Header;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"Components/Jokes.js":[function(require,module,exports) {
+},{"warning":"../node_modules/history/node_modules/warning/browser.js","invariant":"../node_modules/invariant/browser.js","./LocationUtils":"../node_modules/history/LocationUtils.js","./PathUtils":"../node_modules/history/PathUtils.js","./createTransitionManager":"../node_modules/history/createTransitionManager.js","./DOMUtils":"../node_modules/history/DOMUtils.js"}],"Components/Jokes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29476,10 +29442,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
-
-var _Header = _interopRequireDefault(require("./Header"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -29575,7 +29537,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement("div", {
+      return _react.default.createElement("div", null, _react.default.createElement("div", {
         style: {
           marginBottom: 200
         }
@@ -29597,7 +29559,7 @@ function (_Component) {
 
 var _default = Jokes;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Header":"Components/Header.js"}],"assets/project1.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"assets/project1.png":[function(require,module,exports) {
 module.exports = "/project1.0e13da1c.png";
 },{}],"assets/project2.png":[function(require,module,exports) {
 module.exports = "/project2.d48872d8.png";
@@ -30000,8 +29962,6 @@ var _myprofile = _interopRequireDefault(require("../assets/myprofile2.jpg"));
 
 var _title = _interopRequireDefault(require("./title.js"));
 
-var _Header = _interopRequireDefault(require("./Header"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -30073,7 +30033,7 @@ function (_Component) {
         onClick: this.toggleDisplayBio
       }, "Read More"));
       return (// Normal JSX element - looks exactly like HTML
-        _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement("img", {
+        _react.default.createElement("div", null, _react.default.createElement("img", {
           src: _myprofile.default,
           alt: "profile",
           className: "profile"
@@ -30097,7 +30057,42 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Projects":"Components/Projects.js","./SocialProfiles":"Components/SocialProfiles.js","../index.css":"index.css","../assets/myprofile2.jpg":"assets/myprofile2.jpg","./title.js":"Components/title.js","./Header":"Components/Header.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Projects":"Components/Projects.js","./SocialProfiles":"Components/SocialProfiles.js","../index.css":"index.css","../assets/myprofile2.jpg":"assets/myprofile2.jpg","./title.js":"Components/title.js"}],"Components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header(_ref) {
+  var children = _ref.children;
+  var style = {
+    display: 'inline-block',
+    flexDirection: 'row',
+    margin: 10,
+    marginBottom: 30
+  };
+  return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement("h3", {
+    style: style
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/"
+  }, "Home")), _react.default.createElement("h3", {
+    style: style
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/jokes"
+  }, "Jokes"))), children);
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -30112,6 +30107,8 @@ var _Jokes = _interopRequireDefault(require("./Components/Jokes"));
 
 var _App = _interopRequireDefault(require("./Components/App"));
 
+var _Header = _interopRequireDefault(require("./Components/Header"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // This will inject the Element/Component in the index.html file at the div with the id tag of 'root' 
@@ -30120,12 +30117,16 @@ _reactDom.default.render(_react.default.createElement(_reactRouterDom.Router, {
 }, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
   exact: true,
   path: "/",
-  component: _App.default
+  render: function render() {
+    return _react.default.createElement(_Header.default, null, _react.default.createElement(_App.default, null));
+  }
 }), _react.default.createElement(_reactRouterDom.Route, {
   path: "/jokes",
-  component: _Jokes.default
+  render: function render() {
+    return _react.default.createElement(_Header.default, null, _react.default.createElement(_Jokes.default, null));
+  }
 }))), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","history/createBrowserHistory":"../node_modules/history/createBrowserHistory.js","./Components/Jokes":"Components/Jokes.js","./Components/App":"Components/App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","history/createBrowserHistory":"../node_modules/history/createBrowserHistory.js","./Components/Jokes":"Components/Jokes.js","./Components/App":"Components/App.js","./Components/Header":"Components/Header.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

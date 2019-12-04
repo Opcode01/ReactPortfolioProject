@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 
 const Joke = (props) => {
     const { setup, punchline } = props.joke;
@@ -20,7 +21,7 @@ class Jokes extends Component{
 
     fetchJokes = () => {
          // Fetch the joke asynchronously
-         fetch('https://official-joke-api.appspot.com/random_10')
+         fetch('https://official-joke-api.appspot.com/random_ten')
          .then((response) => response.json())
          .then(json => this.setState({jokes: json}))
          .catch(error => alert(error.message));
@@ -28,13 +29,16 @@ class Jokes extends Component{
 
     render(){
         return (
-            <div style={{marginBottom: 200}}>
+            <div>
+                <Header></Header>
+                <div style={{marginBottom: 200}}>
                 <h2>Highlighted Joke</h2>
                 <Joke joke={this.state.joke}/>
                 <button onClick={this.fetchJokes}>See more jokes</button>
                 { this.state.jokes.map(joke => <Joke key={joke.id} joke={joke}/>) } 
-            <hr></hr>
-            </div>
+                <hr/>
+                </div>
+            </div>           
         )
     }
 }

@@ -1,5 +1,6 @@
 # React JS Web Development - The Essentials Bootcamp
 "React JS Web Development - The Essentials Bootcamp": Implementation by Austin Vickers
+
 This is my repository for following along with the bootcamp guides
 
 This provides the completed projects for:

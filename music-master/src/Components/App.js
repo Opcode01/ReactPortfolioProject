@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
+import { resolve } from 'dns';
+
+const API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
 
 // A React component is a combination of react elements
 class App extends Component {
 
-    state = { artistQuery: '' };
+    state = { artistQuery: '', artist: null, topTracks: [] };
 
     updateArtistQuery = (event) => {
-        console.log('event.target.value:', event.target.value);
         this.setState({artistQuery: event.target.value});
     }
 
     searchArtist = () => {
-        console.log('this.state:', this.state);
+        fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`)
+        .then((response) => response.json())
+        .then((json) => {
+            if(json.artists.total > 0){
+                this.setState({artist: json.artists.items[0]});
+                this.getTopTracks(json.artists.items[0].id)
+            }
+        })        
+        .catch(error => alert(error.message));
+    }
+
+    getTopTracks = (artistID) => {
+        fetch(`${API_ADDRESS}/artist/${artistID}/top-tracks`)
+        .then((response) => response.json())
+        .then((json) => this.setState({topTracks: json.tracks}))
+        .catch(error => alert(error.message));
     }
 
     handleKeyPress = (event) => {
@@ -22,6 +39,7 @@ class App extends Component {
 
     //Render method from component
     render() {
+        console.log(this.state);
         return(
             // Normal JSX element - looks exactly like HTML
             <div>
@@ -31,6 +49,8 @@ class App extends Component {
                     onKeyPress={this.handleKeyPress}
                     placeholder="Search for an artist"/>
                 <button onClick={this.searchArtist}>Search</button>
+                <hr></hr>
+                
             </div>
         );
     }

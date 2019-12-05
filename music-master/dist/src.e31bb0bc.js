@@ -24020,7 +24020,9 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"Components/App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
+
+},{}],"Components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24029,6 +24031,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _dns = require("dns");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -24054,7 +24058,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// A React component is a combination of react elements
+var API_ADDRESS = "https://spotify-api-wrapper.appspot.com"; // A React component is a combination of react elements
+
 var App =
 /*#__PURE__*/
 function (_Component) {
@@ -24074,19 +24079,43 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      artistQuery: ''
+      artistQuery: '',
+      artist: null,
+      topTracks: []
     });
 
     _defineProperty(_assertThisInitialized(_this), "updateArtistQuery", function (event) {
-      console.log('event.target.value:', event.target.value);
-
       _this.setState({
         artistQuery: event.target.value
       });
     });
 
     _defineProperty(_assertThisInitialized(_this), "searchArtist", function () {
-      console.log('this.state:', _this.state);
+      fetch("".concat(API_ADDRESS, "/artist/").concat(_this.state.artistQuery)).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        if (json.artists.total > 0) {
+          _this.setState({
+            artist: json.artists.items[0]
+          });
+
+          _this.getTopTracks(json.artists.items[0].id);
+        }
+      }).catch(function (error) {
+        return alert(error.message);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getTopTracks", function (artistID) {
+      fetch("".concat(API_ADDRESS, "/artist/").concat(artistID, "/top-tracks")).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        return _this.setState({
+          topTracks: json.tracks
+        });
+      }).catch(function (error) {
+        return alert(error.message);
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleKeyPress", function (event) {
@@ -24102,6 +24131,7 @@ function (_Component) {
     key: "render",
     //Render method from component
     value: function render() {
+      console.log(this.state);
       return (// Normal JSX element - looks exactly like HTML
         _react.default.createElement("div", null, _react.default.createElement("h2", null, "Music Master"), _react.default.createElement("input", {
           onChange: this.updateArtistQuery,
@@ -24109,7 +24139,7 @@ function (_Component) {
           placeholder: "Search for an artist"
         }), _react.default.createElement("button", {
           onClick: this.searchArtist
-        }, "Search"))
+        }, "Search"), _react.default.createElement("hr", null))
       );
     }
   }]);
@@ -24120,7 +24150,7 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","dns":"../node_modules/parcel-bundler/src/builtins/_empty.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -24234,7 +24264,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60554" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53083" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

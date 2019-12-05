@@ -1,68 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React JS Web Development - The Essentials Bootcamp
+"React JS Web Development - The Essentials Bootcamp": Implementation by Austin Vickers
+This is my repository for following along with the bootcamp guides
 
-## Available Scripts
+This provides the completed projects for:
+- music-master
+- portfolio
 
-In the project directory, you can run:
+Snippet from the course description:
 
-### `npm start`
+*In this course, you will:*
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Dive into React code right away**. You will gain relevant experience as soon as the first section. Time is precious. And I want to make sure that you’ll never feel like you’re wasting it in this course. So in a matter of minutes, you will be writing React code in the first section, with a fully completed app by the end of it.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Understand how React fits in the big picture of web development**. In the second section, you will take an important step back and examine how React fits in the big picture of web development. You’ll build a React project from scratch - discovering all the layers that are in between the supplies that supports the React app, and the browser which displays the React app.
 
-### `npm test`
+**Create relevant and compelling React apps**. I’m betting you’ll find the apps both useful and interesting. Useful ones like the portfolio app will help you both learn React, and be valuable as a completed project for your software engineering and web developer profile. Fun ones like “Music Master”, will make coding lively, giving you apps you want to show off to your friends and family.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Check out the original course:
+https://www.udemy.com/react-js-and-redux-mastering-web-apps/

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Artist from './Artist';
+import Search from './Search';
 import Tracks from './Tracks';
 
 const API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
@@ -7,14 +8,10 @@ const API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
 // A React component is a combination of react elements
 class App extends Component {
 
-    state = { artistQuery: '', artist: null, topTracks: [] };
+    state = { artist: null, topTracks: [] };
 
-    updateArtistQuery = (event) => {
-        this.setState({artistQuery: event.target.value});
-    }
-
-    searchArtist = () => {
-        fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`)
+    searchArtist = (artistQuery) => {
+        fetch(`${API_ADDRESS}/artist/${artistQuery}`)
         .then((response) => response.json())
         .then((json) => {
             if(json.artists.total > 0){
@@ -32,23 +29,13 @@ class App extends Component {
         .catch(error => alert(error.message));
     }
 
-    handleKeyPress = (event) => {
-        if (event.key === 'Enter'){
-            this.searchArtist();
-        }
-    }
-
     //Render method from component
     render() {
         return(
             // Normal JSX element - looks exactly like HTML
             <div>
-                <h2>Music Master</h2>    
-                <input 
-                    onChange={this.updateArtistQuery} 
-                    onKeyPress={this.handleKeyPress}
-                    placeholder="Search for an artist"/>
-                <button onClick={this.searchArtist}>Search</button>
+                <h2>Music Master</h2>   
+                <Search searchArtist={this.searchArtist}/>                 
                 <hr></hr>
                 <Artist artist={this.state.artist} />
                 <Tracks tracks={this.state.topTracks} />

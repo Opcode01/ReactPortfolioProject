@@ -46465,6 +46465,21 @@ function (_Component) {
       };
     });
 
+    _defineProperty(_assertThisInitialized(_this), "trackIcon", function (track) {
+      // Displays if no track preview available
+      if (!track.preview_url) {
+        return _react.default.createElement("span", null, "N/A");
+      } // Displays if this track is already playing
+
+
+      if (_this.state.isPlaying && _this.state.playingPreviewUrl === track.preview_url) {
+        return _react.default.createElement("span", null, "| |");
+      } // Displays if this track is not playing, but can be played next
+
+
+      return _react.default.createElement("span", null, "\u25B6");
+    });
+
     return _this;
   }
 
@@ -46481,11 +46496,17 @@ function (_Component) {
             preview_url = track.preview_url;
         return _react.default.createElement("div", {
           key: id,
+          className: "track",
           onClick: _this2.playAudio(preview_url)
         }, _react.default.createElement("img", {
           src: album.images[0].url,
-          alt: "track-image"
-        }), _react.default.createElement("p", null, name));
+          alt: "track-image",
+          className: "track-image"
+        }), _react.default.createElement("p", {
+          className: "track-text"
+        }, name), _react.default.createElement("p", {
+          className: "track-icon"
+        }, _this2.trackIcon(track)));
       }));
     }
   }]);
@@ -46594,6 +46615,12 @@ function (_Component) {
   }
 
   _createClass(App, [{
+    key: "componentDidMount",
+    //DEBUG only
+    value: function componentDidMount() {
+      this.searchArtist('midlake');
+    }
+  }, {
     key: "render",
     //Render method from component
     value: function render() {
